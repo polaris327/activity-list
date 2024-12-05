@@ -1,0 +1,119 @@
+.circle {
+    border-radius: 100%;
+    border: 1px solid #f0f0f0;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-textarea {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.action-buttons {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-btn>button {
+    margin-right: 8px;
+}
+
+.wrapper-timeline {
+    border: none;
+}
+
+.sbmt-btn{
+    background-color: #52c8b4;
+    border:none;
+}
+/* .delete-btn{
+    background-color: #D22B2B;
+    color:white;
+    border:none;
+} */
+button{
+    border-radius: 5px;
+}
+.icon-btn button.active {
+    background-color: #00c6ee;
+    border:none;
+    color: white;
+    border-color: #0056b3;
+}
+
+.icon-btn button{
+    border-radius: 100%;
+}
+
+::ng-deep .ant-timeline-item-content .ant-card.ant-card-bordered{
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+::ng-deep .ant-timeline-item-label {
+    width: calc(10% - 24px) !important;
+}
+
+::ng-deep .ant-timeline.ant-timeline-label .ant-timeline-item-head,
+.ant-timeline.ant-timeline-label .ant-timeline-item-tail {
+    left: 10% !important;
+}
+
+::ng-deep .ant-timeline.ant-timeline-label .ant-timeline-item-tail {
+    left: 10% !important;
+}
+
+::ng-deep .ant-timeline.ant-timeline-label .ant-timeline-item-left .ant-timeline-item-content {
+    left: 10% !important;
+    width: calc(80% - 14px);
+}
+
+
+.popover-wrapper {
+    /* position: relative;
+    display: inline-block; */
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    background: #00c6ee;
+    border-radius: 82%;
+    color: white;
+  }
+  
+  .popover-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .custom-popover {
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+  
+  .delete-btn {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 200px;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d9363e;
+  }
+  

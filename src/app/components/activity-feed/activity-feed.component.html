@@ -1,0 +1,100 @@
+<nz-card class="wrapper-timeline">
+  <nz-timeline>
+    <nz-timeline-item [nzDot]="list" nzLabel=" ">
+      <nz-card>
+        <textarea
+          nz-input
+          [(ngModel)]="noteContent"
+          placeholder="Add a note about Milton Romaguera..."
+          class="note-textarea"
+        ></textarea>
+        <div class="action-buttons">
+          <div class="icon-btn">
+            <button
+              *ngFor="let icon of icons"
+              nz-button
+              nzType="default"
+              [ngClass]="{ active: selectedType === icon.type }"
+              (click)="selectType(icon.type)"
+            >
+              <i nz-icon [nzType]="icon.icon" nzTheme="outline"></i>
+            </button>
+          </div>
+          <button
+            nz-button
+            nzType="primary"
+            (click)="submitNote()"
+            class="sbmt-btn"
+          >
+            Submit
+          </button>
+        </div>
+      </nz-card>
+    </nz-timeline-item>
+    <nz-timeline-item
+      *ngFor="let note of notes"
+      [nzDot]="getIcon(note.type)"
+      [nzLabel]="getRelativeTime(note.timestamp)"
+    >
+      <nz-card>
+        <div>
+          <p>
+            <strong style="color: #00c6ee">You </strong> had a
+            {{ note.type }} with
+            <strong style="color: #00c6ee">{{ note.user }}</strong>
+          </p>
+          <p>{{ note.content }}</p>
+        </div>
+        <!-- Custom Popover Trigger -->
+        <div class="popover-wrapper">
+          <button class="popover-trigger" (click)="togglePopover(note.timestamp)">
+            <i nz-icon nzType="down" nzTheme="outline"></i>
+          </button>
+
+          <!-- Custom Popover Content -->
+          <div
+            class="custom-popover"
+            *ngIf="activePopover === note.timestamp"
+          >
+            <button class="delete-btn" (click)="deleteNote(note)">Delete</button>
+          </div>
+        </div>
+      </nz-card>
+    </nz-timeline-item>
+  </nz-timeline>
+</nz-card>
+
+<ng-template #messageIcon>
+  <div class="circle">
+    <i nz-icon nzType="message" nzTheme="outline"></i>
+  </div>
+</ng-template>
+<ng-template #list>
+  <div class="circle">
+    <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
+  </div>
+</ng-template>
+
+<ng-template #phoneIcon>
+  <div class="circle">
+    <i nz-icon nzType="phone" nzTheme="outline"></i>
+  </div>
+</ng-template>
+
+<ng-template #coffeeIcon>
+  <div class="circle">
+    <i nz-icon nzType="coffee" nzTheme="outline"></i>
+  </div>
+</ng-template>
+
+<ng-template #calendarIcon>
+  <div class="circle">
+    <i nz-icon nzType="calendar" nzTheme="outline"></i>
+  </div>
+</ng-template>
+
+<ng-template #defaultIcon>
+  <div class="circle">
+    <i nz-icon nzType="info-circle" nzTheme="outline"></i>
+  </div>
+</ng-template>
